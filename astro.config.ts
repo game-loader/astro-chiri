@@ -3,8 +3,9 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import playformInline from '@playform/inline'
 import remarkMath from 'remark-math'
+import remarkObsidianMath from './src/plugins/remark-obsidian-math.mjs'
 import remarkDirective from 'remark-directive'
-import rehypeKatex from 'rehype-katex'
+import rehypeMathjax from 'rehype-mathjax'
 import remarkEmbeddedMedia from './src/plugins/remark-embedded-media.mjs'
 import remarkReadingTime from './src/plugins/remark-reading-time.mjs'
 import rehypeCleanup from './src/plugins/rehype-cleanup.mjs'
@@ -30,8 +31,8 @@ export default defineConfig({
       theme: 'css-variables',
       wrap: false
     },
-    remarkPlugins: [remarkMath, remarkDirective, remarkEmbeddedMedia, remarkReadingTime, remarkTOC],
-    rehypePlugins: [rehypeKatex, rehypeCleanup, rehypeImageProcessor, rehypeCopyCode]
+    remarkPlugins: [remarkMath, remarkObsidianMath, remarkDirective, remarkEmbeddedMedia, remarkReadingTime, remarkTOC],
+    rehypePlugins: [rehypeMathjax, rehypeCleanup, rehypeImageProcessor, rehypeCopyCode]
   },
   integrations: [
     playformInline({

@@ -513,48 +513,21 @@
   font-size: var(--font-size-s);
 }
 
-/* KaTeX Math Rendering */
+/* MathJax Rendering */
 
-/* Hide MathML fallback to prevent duplication */
-.katex-mathml {
-  display: none !important;
-}
-
-/* Ensure display math is centered */
-.katex-display {
-  text-align: center;
-  margin: 1.75em 0;
-}
-
-/* Reset any conflicting styles that might interfere with KaTeX */
-.katex * {
-  box-sizing: content-box;
-}
-
-/* Ensure KaTeX elements inherit color properly */
-.katex,
-.katex * {
+.mjx-container {
+  display: inline-block;
   color: inherit;
 }
 
-/* Specific fixes for common CSS framework conflicts */
-.katex .base,
-.katex .strut,
-.katex .mathit,
-.katex .mathrm,
-.katex .mathbf,
-.katex .mathsf,
-.katex .mathtt {
-  line-height: initial;
-  vertical-align: baseline;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .katex,
-  .katex * {
-    color: inherit;
-  }
+.mjx-container[display='true'] {
+  display: block;
+  text-align: center;
+  margin: 1.75em 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Reading Time */

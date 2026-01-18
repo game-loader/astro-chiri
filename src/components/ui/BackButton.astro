@@ -37,9 +37,8 @@ import { themeConfig } from '@/config'
 
       // Calculate available margin space for positioning
       const pageWidth = window.innerWidth
-      const contentWidthValue = parseFloat(contentWidth)
-      // Apply the same minimum width logic as in BaseLayout
-      const widthValue = Math.min(contentWidthValue, 50)
+      const parsedWidth = parseFloat(contentWidth)
+      const widthValue = Number.isFinite(parsedWidth) ? Math.max(parsedWidth, 25) : 35
       const shouldUseCustomWidth = widthValue > 25
       const finalWidthValue = shouldUseCustomWidth ? widthValue : 25
       const margin = (pageWidth - finalWidthValue * 16) / 2
